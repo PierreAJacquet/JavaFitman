@@ -11,13 +11,13 @@ import java.util.List;
 
 public interface UtilisateurRepository extends PagingAndSortingRepository<Utilisateur, Long> {
 
-    Utilisateur findById (String id);
+    Utilisateur findById (Long id);
 
     List<Utilisateur> findByNomAndPrenom (String nom, String prenom);
 
     List<Utilisateur> findByPseudo (String pseudo);
 
-    List<Utilisateur> findByCodeFitPote (Long codeFitPote);
+    //List<Utilisateur> findByCodeFitPote (Long codeFitPote);
 
     List<Utilisateur> findByDateNaissance (LocalDate date);
 
@@ -25,7 +25,7 @@ public interface UtilisateurRepository extends PagingAndSortingRepository<Utilis
 
     Page<Utilisateur> findByNom (String nom, Pageable pageable);
 
-    List<Utilisateur> findByCodeFitPote_Id(Integer id);
+    //List<Utilisateur> findByCodeFitPote_Id(Integer id);
 
 
 

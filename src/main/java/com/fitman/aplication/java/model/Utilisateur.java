@@ -1,9 +1,8 @@
 package com.fitman.aplication.java.model;
 
-import org.hibernate.annotations.Type;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -30,8 +29,9 @@ public class Utilisateur {
     private String pseudo;
 
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "Code_Fitpote_Utilisateur")
-    private FitPote codeFitPote;
+    private FitPote fitPote;
 
     public Long getId() {
         return id;
@@ -81,24 +81,24 @@ public class Utilisateur {
         this.pseudo = pseudo;
     }
 
-    public FitPote getCodeFitPote() {
-        return codeFitPote;
+    public FitPote getFitPote() {
+        return fitPote;
     }
 
-    public void setCodeFitPote(FitPote codeFitPote) {
-        this.codeFitPote = codeFitPote;
+    public void setFitPote(FitPote fitPote)  {
+        this.fitPote = fitPote;
     }
 
     public Utilisateur() {
     }
 
-    public Utilisateur(String nom, String prenom, String email, String dateNaissance, String pseudo, FitPote codeFitPote) {
+    public Utilisateur(String nom, String prenom, String email, String dateNaissance, String pseudo, FitPote fitPote) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.dateNaissance = dateNaissance;
         this.pseudo = pseudo;
-        this.codeFitPote = codeFitPote;
+        this.fitPote = fitPote;
     }
 
     @Override
@@ -110,7 +110,7 @@ public class Utilisateur {
                 ", email='" + email + '\'' +
                 ", dateNaissance=" + dateNaissance +
                 ", pseudo='" + pseudo + '\'' +
-                ", codeFitPote=" + codeFitPote +
+                ", fitPote=" + fitPote +
                 '}';
     }
 
@@ -125,13 +125,13 @@ public class Utilisateur {
                 Objects.equals(email, that.email) &&
                 Objects.equals(dateNaissance, that.dateNaissance) &&
                 Objects.equals(pseudo, that.pseudo) &&
-                Objects.equals(codeFitPote, that.codeFitPote);
+                Objects.equals(fitPote, that.fitPote);
     }
 
 
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nom, prenom, email, dateNaissance, pseudo, codeFitPote);
+        return Objects.hash(id, nom, prenom, email, dateNaissance, pseudo, fitPote);
     }
 }

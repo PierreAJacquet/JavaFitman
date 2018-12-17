@@ -8,7 +8,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import java.util.List;
 
 public interface FitPoteRepository extends PagingAndSortingRepository<FitPote, Long> {
-    FitPote findById (String id);
+    FitPote findById (Long id);
 
     List<FitPote> findByNom (String nom);
 

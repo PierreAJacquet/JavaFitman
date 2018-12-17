@@ -1,5 +1,7 @@
 package com.fitman.aplication.java.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
@@ -13,7 +15,8 @@ public class FitPote {
     @Column(name = "Id_Fitpote")
     private Long id;
 
-    @OneToMany( mappedBy = "codeFitPote", fetch = FetchType.EAGER)
+    @OneToMany( mappedBy = "fitPote", fetch = FetchType.EAGER)
+    @JsonBackReference
     private List<Utilisateur> utilisateur;
 
     @Column(name = "Nom_Fitpote")
